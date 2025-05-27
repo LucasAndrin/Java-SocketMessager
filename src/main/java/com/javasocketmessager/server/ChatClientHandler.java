@@ -40,7 +40,7 @@ public class ChatClientHandler implements Runnable {
             user = payload.from();
 
             clients.add(this);
-            broadcast(payload.content("🟢 [" + user.name() + "] joined the chat!").toJson());
+            broadcast(payload.content("🟢 " + user.name() + " joined the chat!").toJson());
 
             String message;
             while ((message = clientSocketIn.readLine()) != null) {
@@ -57,7 +57,7 @@ public class ChatClientHandler implements Runnable {
 
                 payload = new Payload();
                 payload.type(PayloadType.Left).from(user)
-                    .content("🔴 [" + user.name() + "] left the chat!");
+                    .content("🔴 " + user.name() + " left the chat!");
 
                 broadcast(payload.toJson());
             } catch (IOException e) {
