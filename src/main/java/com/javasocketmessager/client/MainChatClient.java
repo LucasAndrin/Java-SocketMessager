@@ -1,4 +1,4 @@
-package com.javasocketmessager.chat;
+package com.javasocketmessager.client;
 
 import java.io.BufferedReader;
 import java.io.IOException;
