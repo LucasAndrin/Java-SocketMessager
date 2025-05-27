@@ -12,7 +12,7 @@ import com.javasocketmessager.common.PayloadType;
 import com.javasocketmessager.common.User;
 
 public class MainChatClient {
-    private static final String HOST = "localhost";
+    private static final String HOST = "172.16.1.96";
     private static final int PORT = 8888;
 
     public static void main(String[] args) {
@@ -35,7 +35,7 @@ public class MainChatClient {
                 try {
                     while ((serverMessage = socketIn.readLine()) != null) {
                         Payload payloadMsg = gson.fromJson(serverMessage, Payload.class);
-                        System.out.printf("[%s]: %s\n", payload.from().name(), payloadMsg.content());
+                        System.out.printf("[%s]: %s\n", payloadMsg.from().name(), payloadMsg.content());
                     }
                 } catch (IOException e) {
                     System.out.println("Connection finished!");
